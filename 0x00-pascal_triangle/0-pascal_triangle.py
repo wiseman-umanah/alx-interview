@@ -8,24 +8,15 @@ Pascal’s triangle of n
 
 def pascal_triangle(pas_len=0):
     """
-    Function that implements Pascal Triangle to any Base
-
-    Parameters
-    ----------
-    pas_len: int, optional
-        The power of the Pascal Triangle
-
-    Return
-    ------
-        [[]] - for power 0 and below
-        [[1]] - for power 1
-        [[1, 1]] - for power 2
-        [...[...],[...]...] - dynamically created based on the power
+        returns a lis of lists of integers
+        Args:
+            n (int): number of lists and digits
+        Returns: list of lists
     """
     base_list = [[1], [1, 1]]
 
     if pas_len <= 0:
-        return [[]]
+        return []
     if pas_len == 1:
         return [[1]]
     if pas_len == 2:

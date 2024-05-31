@@ -18,8 +18,6 @@ def pascal_triangle(pas_len=0):
     if pas_len <= 0:
         return []
     if pas_len == 1:
-        return [[1]]
-    if pas_len == 2:
         return base_list
 
     for p_i in range(1, pas_len):

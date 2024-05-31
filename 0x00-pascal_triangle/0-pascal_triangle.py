@@ -6,7 +6,7 @@ Pascal’s triangle of n
 """
 
 
-def pascal_triangle(pas_len=0):
+def pascal_triangle(n=0):
     """
         returns a lis of lists of integers
         Args:
@@ -15,12 +15,14 @@ def pascal_triangle(pas_len=0):
     """
     base_list = [[1], [1, 1]]
 
-    if pas_len <= 0:
+    if n <= 0:
         return []
-    if pas_len == 1:
+    if n == 1:
+        return [[1]]
+    if n == 2:
         return base_list
 
-    for p_i in range(1, pas_len):
+    for p_i in range(1, n-1):
         p_list = [1]
         for p_ii in range(len(base_list[p_i]) - 1):
             p_list.append(base_list[p_i][p_ii] + base_list[p_i][p_ii + 1])

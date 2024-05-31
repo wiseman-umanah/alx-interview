@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+"""
+Module that contains function that returns
+a list of lists of integers representing the
+Pascal’s triangle of n
+"""
+
+
 def pascal_triangle(pas_len=0):
     """
     Function that implements Pascal Triangle to any Base

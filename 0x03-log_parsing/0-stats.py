@@ -21,9 +21,9 @@ def print_stats(total_file_size: int, stats: Dict[str, int]) -> None:
         stats (dict): The dictionary tracker
     """
     print(f"File size: {total_file_size}")
-    for status_code, count in stats.items():
-        if count != 0:
-            print(f"{status_code}: {count}")
+    for status_code in sorted(stats.keys()):
+        if stats[status_code] != 0:
+            print(f"{status_code}: {stats[status_code]}")
 
 
 def process_log_line(line: str, log_regex: re.Pattern) -> int:

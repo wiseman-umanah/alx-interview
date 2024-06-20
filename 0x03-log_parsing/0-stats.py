@@ -4,16 +4,15 @@ Printing the stats after each 10 lines
 """
 import sys
 import re
-from typing import Dict
 
 # Dictionary to keep track of the count of each status code
-stats: Dict[str, int] = {"200": 0, "301": 0,
-                         "400": 0, "401": 0,
-                         "403": 0, "404": 0,
-                         "405": 0, "500": 0}
+stats = {"200": 0, "301": 0,
+         "400": 0, "401": 0,
+         "403": 0, "404": 0,
+         "405": 0, "500": 0}
 
 
-def print_stats(total_file_size: int, stats: Dict[str, int]) -> None:
+def print_stats(total_file_size, stats):
     """Print the current statistics.
 
     Args:
@@ -26,7 +25,7 @@ def print_stats(total_file_size: int, stats: Dict[str, int]) -> None:
             print(f"{status_code}: {stats[status_code]}")
 
 
-def process_log_line(line: str, log_regex: re.Pattern) -> int:
+def process_log_line(line, log_regex):
     """Process a single log line and update stats.
 
     Args:
@@ -45,7 +44,7 @@ def process_log_line(line: str, log_regex: re.Pattern) -> int:
     return 0
 
 
-def main() -> None:
+def main():
     """The main function that starts all the process"""
     total_file_size, line_count = 0, 0
     log_pattern = r'''

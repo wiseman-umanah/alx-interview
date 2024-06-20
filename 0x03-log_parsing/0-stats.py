@@ -25,7 +25,7 @@ def print_stats(total_file_size, stats):
             print(f"{status_code}: {stats[status_code]}")
 
 
-def process_log_line(line, log_regex):
+def process_log_line(line):
     """Process a single log line and update stats.
 
     Args:
@@ -35,32 +35,28 @@ def process_log_line(line, log_regex):
     Return:
         returns the filesize or 0 if not matched
     """
-    match = log_regex.match(line)
-    if match:
-        ip, date, status_code, file_size = match.groups()
-        if status_code in stats:
-            stats[status_code] += 1
-        return int(file_size)
-    return 0
+    match = re.split('- |"|"| " " ', str(line))
+    try:
+        if match:
+            status_code, file_size = match[-1].split()
+            if status_code in stats:
+                stats[status_code] += 1
+            #temporary to cause error for non int so that file_size is not added.
+            int(status_code)
+            return int(file_size)
+    except:
+        return 0
 
 
 def main():
     """The main function that starts all the process"""
     total_file_size, line_count = 0, 0
-    log_pattern = r'''
-    (\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b)  # IP address
-    \s-\s\[(.*?)\]  # Date
-    \s"GET\s\/projects\/260\sHTTP\/1\.1"  # Request line
-    \s(\d{3})  # Status code
-    \s(\d+)  # File size
-    '''
-    log_regex = re.compile(log_pattern, re.VERBOSE)
 
     try:
         for line in sys.stdin:
             line = line.strip()
             if line:
-                file_size = process_log_line(line, log_regex)
+                file_size = process_log_line(line)
                 total_file_size += file_size
                 line_count += 1
 

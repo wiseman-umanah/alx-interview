@@ -17,16 +17,16 @@ def validUTF8(data: List[int]) -> bool:
 
     for byte in data:
         if count == 0:
-            if byte >> 5 == 110:
+            if byte >> 5 == 0b110:
                 count = 1
-            elif byte >> 4 == 1110:
+            elif byte >> 4 == 0b1110:
                 count = 2
-            elif byte >> 3 == 11110:
+            elif byte >> 3 == 0b11110:
                 count = 3
-            elif byte >> 7 != 0:
+            elif byte >> 7 != 0b0:
                 return False
         else:
-            if byte >> 6 != 10:
+            if byte >> 6 != 0b10:
                 return False
             count -= 1
 

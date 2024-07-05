@@ -30,19 +30,19 @@ def solve_n_queens(board: List[List[int]], row: int, n: int) -> None:
 def main() -> None:
     """The main function"""
     if len(sys.argv) != 2:
-        print("Usage: nqueens N\n")
-        sys.exit(1)
+        print("Usage: nqueens N")
+        exit(1)
     if sys.argv[1].isnumeric():
         n = int(sys.argv[1])
         if n < 4:
-            print("N must be a least 4\n")
-            sys.exit(1)
+            print("N must be a least 4")
+            exit(1)
         else:
             board = []
             solve_n_queens(board, 0, n)
     else:
-        print("N must be a number\n")
-        sys.exit(1)
+        print("N must be a number")
+        exit(1)
 
 
 if __name__ == "__main__":

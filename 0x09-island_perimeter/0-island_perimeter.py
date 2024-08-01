@@ -5,7 +5,7 @@ an island in a grid
 
 
 def island_perimeter(grid):
-    """Calculates the perimeter of a island in grid
+    """Calculates the perimeter of an island in grid
 
     Args:
         grid (List[List[int]]): a 2D matrix
@@ -15,13 +15,13 @@ def island_perimeter(grid):
     """
     perimeter = 0
 
-    for rows in range(len(grid)):  # get rows number
-        for cols in range(len(grid[rows])):  # get columns number
-            if grid[rows][cols] == 1:
+    for row in range(len(grid)):  # get rows number
+        for col in range(len(grid[row])):  # get columns number
+            if grid[row][col] == 1:
                 perimeter += 4  # adds 4 if found
-                if (cols + 1) < len(grid[rows]) and grid[rows][cols + 1] == 1:
-                    perimeter -= 2  # if right columns is 1
-                if (rows + 1) < len(grid[rows]) and grid[rows + 1][cols] == 1:
+                if col + 1 < len(grid[row]) and grid[row][col + 1] == 1:
+                    perimeter -= 2  # if right column is 1
+                if row + 1 < len(grid) and grid[row + 1][col] == 1:
                     perimeter -= 2  # if bottom row is 1
 
     return perimeter

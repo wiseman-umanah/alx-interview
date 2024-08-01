@@ -21,7 +21,7 @@ def island_perimeter(grid):
                 perimeter += 4  # adds 4 if found
                 if (cols + 1) < len(grid[rows]) and grid[rows][cols + 1] == 1:
                     perimeter -= 2  # if right columns is 1
-                if (cols + 1) < len(grid[rows]) and grid[rows - 1][cols] == 1:
+                if (rows + 1) < len(grid[rows]) and grid[rows + 1][cols] == 1:
                     perimeter -= 2  # if bottom row is 1
 
     return perimeter

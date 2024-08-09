@@ -9,4 +9,5 @@ This task is designed to enhance dynamic programming skills, cognitive reasoning
 - Check if there exist a round or game to play
 - Initialized maria and ben's score to be 0
 - for each round, generate a list of prime numbers to current round number
-- iterate list of prime number
+- Check if the length of prime numbers of current round is even, add 1 to Ben, else add to Maria
+- Finally check player with highest score and return/log.

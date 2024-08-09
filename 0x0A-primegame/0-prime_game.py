@@ -37,7 +37,6 @@ def isWinner(x, nums):
 
     for n in nums:
         primes = [i for i in range(2, n + 1) if is_prime(i)]
-        move_count = 0
 
         if len(primes) % 2 == 0:
             ben += 1

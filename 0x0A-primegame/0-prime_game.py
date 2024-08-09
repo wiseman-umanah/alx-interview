@@ -39,13 +39,7 @@ def isWinner(x, nums):
         primes = [i for i in range(2, n + 1) if is_prime(i)]
         move_count = 0
 
-        for i in primes:
-            # prime = primes.pop(0)
-            # primes = [p for p in primes if p % prime != 0]
-            # print(primes)
-            move_count += 1
-
-        if move_count % 2 == 0:
+        if len(primes) % 2 == 0:
             ben += 1
         else:
             maria += 1
